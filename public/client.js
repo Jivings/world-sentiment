@@ -46,9 +46,9 @@ function initmap() {
 
   setTimeout(function () {
     socket.emit('start')
-  }, 2000);
+  }, 10000);
 
-  setTimeout(function () {
-    socket.emit('stop');
-  }, 25000)
+  // setTimeout(function () {
+  //   socket.emit('stop');
+  // }, 25000)
 }

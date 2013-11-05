@@ -16,12 +16,12 @@ SentimentStream.prototype.start = function() {
 
   var that = this;
 
-  twit.stream('statuses/filter.json?locations=-180,-90,180,90', function(stream) {
-
-  that.on('stop', stream.destroy);
+  twit.stream('statuses', 'filter', function (stream) {
+  console.log('Streaming!');  
+  // that.on('stop', stream.destroy);
   
   stream.on('data', function(data) {
-
+    console.log('data!', data);  
     var tweet = {
       time : data.created_at,
       id   : data.id,
