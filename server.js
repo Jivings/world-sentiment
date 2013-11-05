@@ -17,8 +17,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 var server = http.createServer(app);
 		sock = io.listen(server);
 
+var tweets = new tweetStream();
+
 sock.sockets.on('connection', function (socket) {
-	var tweets = new tweetStream();
+	
 	tweets.on('sentiment', function (data) {
 	  console.log(data);
 	  socket.emit('sentiment', data);
@@ -26,6 +28,11 @@ sock.sockets.on('connection', function (socket) {
 
 	tweets.stream();
 	setTimeout(function () { console.log('Stopped stream'); tweets.emit('stop')}, 30000);
+});
+
+sock.sockets.on('stop', function (socket) {
+	console.log('stop')
+	tweets.emit('stop');
 });
 // tweetStream.start();
 // sock.sockets.on('connection', function (socket) {

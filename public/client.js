@@ -9,7 +9,7 @@ var defaultIcon = {
     iconUrl: 'my-icon.png',
 };
 
-var socket = io.connect('http://localhost');
+var socket = io.connect('/');
 socket.on('sentiment', function (t) {
   console.log(t);
   L.marker(t.geo, { icon : makeIcon(t) }).addTo(map);
