@@ -6,10 +6,10 @@
     "name": "James Ivings",
     "url": "http://james.ivings.name"
   },
-  "main": "./index.js",
+  "main": "./lib/server.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Jivings/crossbone.js.git"
+    "url": "https://github.com/Jivings/world-sentiment"
   },
   "dependencies": {
     "express": "~3.3.8",
